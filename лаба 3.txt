@@ -1,0 +1,289 @@
+#include <iostream>
+#include <vector>
+#include <ctime>
+#include <cstdlib>
+#include <algorithm>
+using namespace std;
+
+//int main() {
+//    // Задача 1: Дан массив. Все его элементы:
+//    srand(static_cast<unsigned>(time(0)));
+//
+//    vector<int> arr(10); // Создаем массив из 10 элементов
+//
+//    for (int i = 0; i < arr.size(); i++) {
+//        arr[i] = rand() % 100; // Заполняем массив случайными числами от 0 до 99
+//    }
+//
+//    // 1.1 увеличить в 2 раза;
+//    for (int& num : arr) {
+//        num *= 2;
+//    }
+//
+//    // 1.2 уменьшить на число a;
+//    int a = 10; // Заданное число a
+//    for (int& num : arr) {
+//        num -= a;
+//    }
+//
+//    // 1.3 разделить на первый элемент (предполагаем, что первый элемент не равен 0)
+//    if (!arr.empty()) {
+//        for (int i = 1; i < arr.size(); i++) {
+//            arr[i] /= arr[0];
+//        }
+//    }
+//    return 0;
+//}
+
+//int main() {
+//    // Задача 2: Определить:
+//
+//    srand(static_cast<unsigned>(time(0)));
+//
+//    vector<int> arr(10);
+//
+//    for (int i = 0; i < arr.size(); i++) {
+//        arr[i] = rand() % 100;
+//    }
+//
+//
+//    // 2.1 сумма всех элементов массива;
+//    int sum = 0;
+//    for (int num : arr) {
+//        sum += num;
+//    }
+//
+//    // 2.2 сумма квадратов всех элементов массива;
+//    int sumOfSquares = 0;
+//    for (int num : arr) {
+//        sumOfSquares += num * num;
+//    }
+//
+//    // 2.3 сумма шести первых элементов массива;
+//    int sumOfFirstSix = 0;
+//    for (int i = 0; i < 6 && i < arr.size(); i++) {
+//        sumOfFirstSix += arr[i];
+//    }
+//
+//    // 2.4 сумма элементов массива с k1-го по k2й;
+//    int k1 = 2;
+//    int k2 = 7;
+//    int sumInRange = 0;
+//    for (int i = k1; i <= k2 && i < arr.size(); i++) {
+//        sumInRange += arr[i];
+//    }
+//
+//    // 2.5 среднее арифметическое всех элементов массива;
+//    double average = static_cast<double>(sum) / arr.size();
+//
+//    // 2.6 среднее арифметическое элементов массива с s1-го по s2-й.
+//    int s1 = 1;
+//    int s2 = 4;
+//    double averageInRange = 0.0;
+//    if (s1 >= 0 && s2 < arr.size() && s1 <= s2) {
+//        int sumInRange2 = 0;
+//        for (int i = s1; i <= s2; i++) {
+//            sumInRange2 += arr[i];
+//        }
+//        averageInRange = static_cast<double>(sumInRange2) / (s2 - s1 + 1);
+//    }
+//
+//
+//    cout << "Сумма всех элементов: " << sum << endl;
+//    cout << "Сумма квадратов всех элементов: " << sumOfSquares << endl;
+//    cout << "Сумма шести первых элементов: " << sumOfFirstSix << endl;
+//    cout << "Сумма элементов с " << k1 << " по " << k2 << ": " << sumInRange << endl;
+//    cout << "Среднее арифметическое всех элементов: " << average << endl;
+//    cout << "Среднее арифметическое элементов с " << s1 << " по " << s2 << ": " << averageInRange << endl;
+//
+//    return 0;
+//}
+
+//int main() {
+//    // Задача 3: Дан одномерный массив из 20 элементов. Переставить первые три и последние три элемента, сохранив порядок их следования.
+//
+//    srand(static_cast<unsigned>(time(0)));
+//
+//    vector<int> arr(20);
+//
+//    for (int i = 0; i < arr.size(); i++) {
+//        arr[i] = rand() % 100;
+//    }
+//
+//    // Переставляем первые три элемента и последние три элемента
+//    if (arr.size() >= 6) {
+//        reverse(arr.begin(), arr.begin() + 3);
+//        reverse(arr.end() - 3, arr.end());
+//    }
+//
+//
+//    for (int num : arr) {
+//        cout << num << " ";
+//    }
+//    cout << endl;
+//
+//    return 0;
+//}
+
+//int main() {
+//    // Задача 4: Удалить из массива:
+//
+//    srand(static_cast<unsigned>(time(0)));
+//
+//    vector<int> arr(10);
+//
+//    for (int i = 0; i < arr.size(); i++) {
+//        arr[i] = rand() % 100 - 50;
+//    }
+//
+//    // 4.1 Удаление первого отрицательного элемента (если отрицательные элементы есть)
+//    auto firstNegative = find_if(arr.begin(), arr.end(), [](int x) { return x < 0; });
+//    if (firstNegative != arr.end()) {
+//        arr.erase(firstNegative);
+//    }
+//
+//    // 4.2 Удаление последнего четного элемента (если четные элементы есть)
+//    auto lastEven = find_if(arr.rbegin(), arr.rend(), [](int x) { return x % 2 == 0; });
+//    if (lastEven != arr.rend()) {
+//        arr.erase((lastEven + 1).base());
+//    }
+//
+//
+//    for (int num : arr) {
+//        cout << num << " ";
+//    }
+//    cout << endl;
+//
+//    return 0;
+//}
+
+//int main() {
+//    // Задача 5: Дано название города. Определить, четно или нет количество символов в нем.
+//
+//    string cityName;
+//    cout << "Введите название города: ";
+//    cin >> cityName;
+//
+//    bool isEvenLength = (cityName.length() % 2 == 0);
+//
+//    if (isEvenLength) {
+//        cout << "Длина названия города четная." << endl;
+//    } else {
+//        cout << "Длина названия города нечетная." << endl;
+//    }
+//
+//    return 0;
+//}
+
+//int main() {
+//    // Задача 6: Даны две фамилии. Верните true, если первая длинее.
+//
+//    string lastName1, lastName2;
+//    cout << "Введите первую фамилию: ";
+//    cin >> lastName1;
+//    cout << "Введите вторую фамилию: ";
+//    cin >> lastName2;
+//
+//    bool isFirstLonger = (lastName1.length() > lastName2.length());
+//
+//    if (isFirstLonger) {
+//        cout << "True" << endl;
+//    } else {
+//        cout << "False" << endl;
+//    }
+//
+//    return 0;
+//}
+
+//int main() {
+//    // Задача 7: Даны названия трех городов. Запишите в the_longest самое длинное, а самое короткое название в the_shortest.
+//
+//    string city1, city2, city3;
+//    cout << "Введите название первого города: ";
+//    cin >> city1;
+//    cout << "Введите название второго города: ";
+//    cin >> city2;
+//    cout << "Введите название третьего города: ";
+//    cin >> city3;
+//
+//    string the_longest = city1;
+//    string the_shortest = city1;
+//
+//    if (city2.length() > the_longest.length()) {
+//        the_longest = city2;
+//    } else if (city2.length() < the_shortest.length()) {
+//        the_shortest = city2;
+//    }
+//
+//    if (city3.length() > the_longest.length()) {
+//        the_longest = city3;
+//    } else if (city3.length() < the_shortest.length()) {
+//        the_shortest = city3;
+//    }
+//
+//    cout << "the_longest: " << the_longest << endl;
+//    cout << "the_shortest: " << the_shortest << endl;
+//
+//    return 0;
+//}
+
+//int main() {
+//    // Задача 8: Дано слово. Добавить к нему в начале и конце столько звездочек, сколько букв в этом слове.
+//
+//    string word;
+//    cout << "Введите слово: ";
+//    cin >> word;
+//
+//    string wordWithStars = string(word.length(), '*') + word + string(word.length(), '*');
+//
+//    cout << "Слово с звездочками: " << wordWithStars << endl;
+//
+//    return 0;
+//}
+
+//int main() {
+//    // Задача 9: Дано предложение. Определить долю (в %) букв 'a' в нем.
+//
+//    string sentence;
+//    cout << "Введите предложение: ";
+//    cin.ignore(); // Очищаем буфер
+//    getline(cin, sentence);
+//
+//    int totalLetters = 0;
+//    int aCount = 0;
+//
+//    for (char c : sentence) {
+//        if (isalpha(c)) {
+//            totalLetters++;
+//            if (c == 'a' || c == 'A') {
+//                aCount++;
+//            }
+//        }
+//    }
+//
+//    if (totalLetters == 0) {
+//        cout << "В предложении нет букв." << endl;
+//    } else {
+//        double aPercentage = (static_cast<double>(aCount) / totalLetters) * 100;
+//        cout << "Доля букв 'a' в предложении: " << aPercentage << "%" << endl;
+//    }
+//
+//    return 0;
+//}
+
+//int main() {
+//    // Задача 10: Дано предложение "Can you can a can as a canner can can a can?". Заменить все слова "can" на слово "new_word".
+//
+//    string inputSentence = "Can you can a can as a canner can can a can?";
+//    string replacement = "new_word";
+//
+//    size_t found = inputSentence.find("can");
+//    while (found != string::npos) {
+//        inputSentence.replace(found, 3, replacement);
+//        found = inputSentence.find("can", found + replacement.length());
+//    }
+//
+//    cout << "Измененное предложение: " << inputSentence << endl;
+//
+//    return 0;
+//}

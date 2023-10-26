@@ -1,0 +1,97 @@
+1.
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	int n;
+	cin >> n;
+	for (int i = 1; i <= 10; i++) {
+		cout << i << " * " << n << " = " << i * n << endl;
+	}
+	cout << " " << endl;
+	for (int i = 1; i <= 10; i++) {
+		cout << i << " * " << 7 << " = " << i * 7 << endl;
+	}
+}
+
+2.
+#include <iostream>
+using namespace std;
+int main() 
+{
+	using byte = unsigned char;
+	pair<byte, byte>position1;
+	pair<byte, byte>position2;
+	cin >> position1.first >> position1.second;
+	cin >> position2.first >> position2.second;
+
+	if (position1.first == position2.first || position1.second == position2.second) {
+		cout << "Rook wons" << endl;
+	}
+	else {
+		cout << "Rook looses" << endl;
+	}
+	if (abs(position1.first - position2.first) == 1 || abs(position1.second - position2.second) == 1) {
+		cout << "King wons" << endl;
+	}
+	else {
+		cout << "King loses" << endl;
+	}
+	if ((position2.second - position1.second) == 1 && (position1.first == position2.first)) {
+			cout << "Pawn wins (no damage)" << endl;
+	}
+	if (abs(position1.first - position2.first) == 1 && (position2.second - position1.second) == 1){
+			cout << "Pawn wins (w/ damage)" << endl;
+	}
+	else {
+		cout << "Pawn looses" << endl;
+	}
+	if (position1.first + position2.second + position2.first + position1.second % 11 == 0 || position1.first + position2.second + position2.first + position1.second % 9 == 0) {
+		cout << "Bishop wons" << endl;
+
+	}
+	else {
+		cout << "Bishop looses" << endl;
+	}
+}
+
+3.
+
+#include <iostream>
+using namespace std;
+int main() {
+	int i, j = 8;
+	for (i = 9; i <= 15; ++i) {
+		j *= i;
+	}
+	int a, b, c, l, x;
+	cin >> a;
+	cin >> b;
+	for (c = a; c <= 20; ++c) {
+		c *= a;
+	}
+	for (l = 1; l <= b; ++l) {
+		l *= b;
+	}
+	for (x = a; x <= b; ++x) {
+		x *= b;
+	}
+
+	cout << j << " " << c << " " << l << " " << x<< " " << endl;
+	
+}
+
+
+4.
+#include <iostream>
+int main() 
+{
+  int x, y, z;
+  //if(x%2==0 && y%2==0){}
+  //if(x<20 && y>=20) || (x>=20 && y<20){}
+  //if(x==0 || y==0){}
+  //if(abs(x) != x && abs(y) != y && abs(z) != z){}
+  //if((x%5==0 && y%5!=0 && z%5!=0) || (x%5!=0 && y%5==0 && z%5!=0) || (x%5!=0 && y%5!=0 && z%5==0)){}
+  //if(x>100 || y>100 || z>100){}
+}
